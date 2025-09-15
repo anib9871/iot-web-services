@@ -1,19 +1,43 @@
-# Ignore virtual environments
-.venv/
-venv/
-
-# Ignore Python cache
+# ------------------------
+# Python
+# ------------------------
 __pycache__/
-
-# Ignore DB
-*.sqlite3
-
-# Ignore IDE/project files
-.idea/
+*.pyc
+*.pyo
+*.pyd
 *.log
 
-# Ignore OS files
-.DS_Store
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
 
-# Ignore big Java folder
+# ------------------------
+# Django
+# ------------------------
+*.sqlite3
+db.sqlite3
+/staticfiles/
+/media/
+
+# Environment variables
+.env
+
+# ------------------------
+# IDE / Editor
+# ------------------------
+.idea/
+.vscode/
+*.swp
+
+# ------------------------
+# OS files
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# Project-specific
+# ------------------------
 iot_api/oracleJdk-24/

@@ -1,4 +1,8 @@
 # iot_project/settings.py
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,16 +60,26 @@ WSGI_APPLICATION = 'iot_project.wsgi.application'
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }'''
+# DATABASES = {
+#             'default': {
+#                 'ENGINE': 'django.db.backends.mysql',
+#                 'NAME': 'airkpi',  # Replace with your database name
+#                 'USER': 'root',      # Replace with your MySQL username
+#                 'PASSWORD': '1234', # Replace with your MySQL password
+#                 'HOST': 'localhost',             # Or the IP address/hostname of your MySQL server
+#                 'PORT': '3306',                  # Default MySQL port
+#             }
+#         }
 DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.mysql',
-                'NAME': 'airkpi',  # Replace with your database name
-                'USER': 'root',      # Replace with your MySQL username
-                'PASSWORD': '1234', # Replace with your MySQL password
-                'HOST': 'localhost',             # Or the IP address/hostname of your MySQL server
-                'PORT': '3306',                  # Default MySQL port
-            }
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('MYSQLDATABASE', 'railway'),   # <-- Railway DB name
+        'USER': os.getenv('MYSQLUSER', 'root'),
+        'PASSWORD': os.getenv('MYSQLPASSWORD', ''),
+        'HOST': os.getenv('MYSQLHOST', 'localhost'),
+        'PORT': os.getenv('MYSQLPORT', '3306'),
+    }
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],
