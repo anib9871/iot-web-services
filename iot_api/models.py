@@ -313,13 +313,15 @@ class DeviceReadingLog(models.Model):
 
 
 class CompassDates(models.Model):
+    id = models.BigAutoField(primary_key=True)  # matches DB
     ORGANIZATION_ID = models.IntegerField()
-    BRANCH_ID = models.IntegerField() 
-    CMPS_DT = models.DateField(null=True, blank=True) 
-    class Meta: 
-        db_table = 'compass_dates' 
-        unique_together = (('ORGANIZATION_ID', 'BRANCH_ID'),) 
-        
+    BRANCH_ID = models.IntegerField()
+    CMPS_DT = models.DateField(null=True, blank=True)
+
+    class Meta:
+        db_table = "compass_dates"
+        unique_together = (("ORGANIZATION_ID", "BRANCH_ID"),)
+
 class MasterDevice(models.Model): 
     DEVICE_MACID =models.CharField(max_length=100,null=True,blank=True) 
     CENTRE_ID = models.IntegerField(default=1) 
