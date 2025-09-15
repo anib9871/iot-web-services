@@ -13,6 +13,9 @@ ALLOWED_HOSTS = ["web-production-8a22.up.railway.app",  # Railway domain
     "localhost",
     "127.0.0.1"
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-8a22.up.railway.app"
+]
 
 
 INSTALLED_APPS = [
