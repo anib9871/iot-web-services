@@ -114,3 +114,10 @@ TWILIO_ACCOUNT_SID = '721caf7fd9f3071ACc3786c5763f4cd1d8'
 TWILIO_AUTH_TOKEN = 'a364782f1c2ea9b02b1e30915505043d'
 TWILIO_PHONE_NUMBER = '+17755877724'  # Twilio se mila number
 
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
