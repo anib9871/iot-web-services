@@ -1,1 +1,1 @@
-web: python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn iot_project.wsgi
+web: echo "=== Running Migrations ===" && python manage.py migrate --noinput && echo "=== Collecting Static Files ===" && python manage.py collectstatic --noinput && echo "=== Starting Gunicorn ===" && gunicorn iot_project.wsgi
